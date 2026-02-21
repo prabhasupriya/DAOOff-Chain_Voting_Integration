@@ -1,0 +1,15 @@
+# Foundry/Forge outputs
+out/
+cache/
+broadcast/
+
+# Environment variables
+.env
+
+# Dependencies
+lib/
+node_modules/
+
+# IDE/System files
+.DS_Store
+.vscode/

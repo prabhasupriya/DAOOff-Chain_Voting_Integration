@@ -1,0 +1,23 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+libs = ['lib']
+
+# This ensures Forge uses the Upgradeable versions correctly
+remappings = [
+    '@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/',
+    '@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/',
+    'forge-std/=lib/forge-std/src/'
+]
+
+optimizer = true
+optimizer_runs = 200
+
+# This forces the compiler to ignore the minor return type warnings 
+# that are inherent in the nightly OZ 5.0 build
+ignored_error_codes = [4822, 2353, 5574]
+
+[profile.default.model_checker]
+contracts = { 'contracts/DAOGovernor.sol' = [ 'DAOGovernor' ] }
+
+code_size_limit = 50000
