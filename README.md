@@ -26,7 +26,7 @@ Treasury (Asset Storage),0x5FC8d32690cc91D4c39d9d3abcBD16989F875707
 * Flash Loan Protection: Uses ERC20Votes with block-number checkpoints to ensure voting power is calculated at the moment of proposal creation.
 * Execution Buffer: A mandatory 1-hour delay in DAOTimelock ensures a cooling-off period before funds are moved.
 * Access Control: The Treasury is owned exclusively by the Timelock.
-### ### 2. Gas Optimization
+### 2. Gas Optimization
 * **Calldata vs Memory:** Used `calldata` for all external function arrays to reduce gas costs during proposal submission.
 * **Storage Packing:** State variables are ordered to minimize storage slot usage.
 ##  Setup & Testing Instructions

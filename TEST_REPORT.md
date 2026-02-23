@@ -14,8 +14,21 @@ Ran 3 test suites in 22.53ms: 5 tests passed, 0 failed, 0 skipped
 [PASS] testGovernorSettings()
 [PASS] testQuorumRequirement()
 [PASS] testGovernanceExecutionFlow()
+```
+##  Gas Usage AnalysisBased on the forge test --gas-report output:
+```bash
+Contract          Function Name  Avg Gas Used Optimization
 
-##  Gas Usage AnalysisBased on the forge test --gas-report output:ContractFunction NameAvg Gas UsedOptimizationDAOGovernorpropose68,570High (Calldata)DAOGovernorcastVote83,233BalancedDAOGovernorqueue145,228StandardDAOGovernorexecute96,632HighGOVTokendelegate95,438Checkpointed
+DAOGovernor   propose            68,570   High(Calldata)
+
+DAOGovernor   castVote           83,233   Balanced  
+
+DAOGovernor   queue                145,228   Standard   
+
+DAOGovernor   execute              96,632   High  
+
+GOVToken         delegate           95,438    Checkpointed
+```
 
 ## Verification Video
 Technical Walkthrough: A comprehensive video demonstration of the DAO Governance system, covering contract deployment, proposal creation, and execution flows.
