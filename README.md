@@ -26,16 +26,10 @@ Treasury (Asset Storage),0x5FC8d32690cc91D4c39d9d3abcBD16989F875707
 * Flash Loan Protection: Uses ERC20Votes with block-number checkpoints to ensure voting power is calculated at the moment of proposal creation.
 * Execution Buffer: A mandatory 1-hour delay in DAOTimelock ensures a cooling-off period before funds are moved.
 * Access Control: The Treasury is owned exclusively by the Timelock.
-##  Gas Usage Analysis
-The system is optimized for gas efficiency. Below is the report generated from the integration and unit test suites:
-Contract Function Name Avg Gas 
-UsedDAOGovernor propose68,570
-DAOGovernor castVote 83,233
-DAOGovernor queue 145,228 
-DAOGovernor execute 96,632 
-GOVToken delegate 95,438
-GOVToken transfer 61,373
-## 🛠 Setup & Testing Instructions
+### ### 2. Gas Optimization
+* **Calldata vs Memory:** Used `calldata` for all external function arrays to reduce gas costs during proposal submission.
+* **Storage Packing:** State variables are ordered to minimize storage slot usage.
+##  Setup & Testing Instructions
 ### Step 1: Build the Environment
 Build the Docker container to ensure all dependencies are correctly installed.
 ```bash
@@ -71,8 +65,12 @@ Ran 3 test suites: 5 tests passed, 0 failed, 0 skipped
 ```
 
 ### Live Blockchain Verification
-To confirm the UUPS Proxy is active and the Governor is initialized, we performed a name check:
+To confirm the UUPS Proxy is active and the Governor is initialized,I performed a name check:
 
 Command: cast call 0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9 "name()(string)"
 
 Response: "MyDAO"
+
+##  Video Demo
+Technical Walkthrough: A comprehensive video demonstration of the DAO Governance system, covering contract deployment, proposal creation, and execution flows.
+**[Click here to watch the Project Video](https://youtu.be/CdmVDR7wjNM)**
